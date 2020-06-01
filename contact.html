@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesart Communication</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="icon" href="images/ll.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Oswald:400,700">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/mediaelementplayer.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/fl-bigmug-line.css">
+    <link rel="stylesheet" href="css/form.css" >
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body>
+
+
+
+  <div class="site-wrap">
+
+    <div class="site-navbar mt-4">
+        <div class="container py-1">
+          <div class="row align-items-center">
+            <div class="col-8 col-md-8 col-lg-4">
+              <h1 class="mb-0"><a href="index.html" class="text-white h2 mb-0"><img src="https://media.discordapp.net/attachments/635278809741918218/712457076747534446/ll.png" height="72px" width="73px">
+           <img src="https://media.discordapp.net/attachments/635278809741918218/712644723419906079/ltxt.png" width="129" height="57">
+
+          </a></h1>
+            </div>
+            <div class="col-4 col-md-4 col-lg-8">
+              <nav class="site-navigation text-right text-md-right" role="navigation">
+
+                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+                <ul class="site-menu js-clone-nav d-none d-lg-block">
+                  <li class="active">
+                    <a href="index.html" style="font-family: optima">Home</a>
+                  </li>
+                  <li><a href="#about">About</a><li>
+                    <li><a href="#domains">Domains</a></li>
+                  <li><a href="Users/omar/Desktop/LESART WS/contact.html">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+   <br><br><br><br><br><br><br><br>
+<center>
+    <h2 style="color: white; font-family: optima">CONTACT</h2>
+    <br><br>
+    <div class="imagebg"></div>
+        <div class="container">
+            <div class="form-container z-depth-5">
+                <div class="row">
+                <form class="col s12" id="reused_form">
+                  <div class="row">
+                    <div class="input-field col s12">
+                        <label for="name">Name</label>
+                      <input id="name" type="text" name="name" required class="validate" style="width: 480px; height: 60px">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                        <label for="email">Email</label>
+                      <input id="email" type="email" name="email" required class="validate" style="width: 480px; height: 60px">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                        <label for="message">Message</label>
+                      <textarea id="message" name="message" name="message" class="validate" style="width: 480px; height: 100px"></textarea>
+                    </div>
+                  </div>
+                   <div><br>
+                        <button type="submit" style="color: black">Submit</button>
+                    </div>
+                </form>
+
+                <div id="error_message" style="width:100%; height:100%; display:none; ">
+                    <h4>Error</h4>
+                    Sorry there was an error sending your form.
+                </div>
+                <div id="success_message" style="width:100%; height:100%; display:none; ">
+                    <h4>Success! Your Message was Sent Successfully.</h4>
+                </div>
+              </div>
+            </div>
+        </div>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+      <script>
+$(function()
+{
+    function after_form_submitted(data)
+    {
+        if(data.result == 'success')
+        {
+            $('form#reused_form').hide();
+            $('#success_message').show();
+            $('#error_message').hide();
+        }
+        else
+        {
+            $('#error_message').append('<ul></ul>');
+
+            jQuery.each(data.errors,function(key,val)
+            {
+                $('#error_message ul').append('<li>'+key+':'+val+'</li>');
+            });
+            $('#success_message').hide();
+            $('#error_message').show();
+
+            //reverse the response on the button
+            $('button[type="button"]', $form).each(function()
+            {
+                $btn = $(this);
+                label = $btn.prop('orig_label');
+                if(label)
+                {
+                    $btn.prop('type','submit' );
+                    $btn.text(label);
+                    $btn.prop('orig_label','');
+                }
+            });
+
+        }//else
+    }
+
+    $('#reused_form').submit(function(e)
+      {
+        e.preventDefault();
+
+        $form = $(this);
+        //show some response on the button
+        $('button[type="submit"]', $form).each(function()
+        {
+            $btn = $(this);
+            $btn.prop('type','button' );
+            $btn.prop('orig_label',$btn.text());
+            $btn.text('Sending ...');
+        });
+
+
+                    $.ajax({
+                type: "POST",
+                url: 'handler.php',
+                data: $form.serialize(),
+                success: after_form_submitted,
+                dataType: 'json'
+            });
+
+      });
+});
+</script>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <p style="color: grey" href="">Email: lakhouaneomar@hotmail.com</p>
+      <p style="color: grey" href="">GSM: +212 661-518606</pp>
+      <p style="color: grey" href="">Maroc, Casablanca</p>
+      <p style="color: grey" href="">65. lotissement assalama. sidi maarouf.</p>
+      <br>
+      <div style="transform: rotate(350deg); width: 396px; height: 232px;" title="" data-is-responsive="false" data-display-mode="fill" data-content-padding-horizontal="0" data-content-padding-vertical="0" data-exact-height="232" data-angle="350" data-angle-style-location="" class="wp2" id="comp-k9kmshs7">
+        <div style="width: 396px; height: 232px;" id="comp-k9kmshs7link" class="wp2link">
+        <img id="comp-k9kmshs7imgimage" data-type="image" itemprop="image" style="width: 396px; height: 232px; object-fit: cover;" src="https://media.discordapp.net/attachments/635278809741918218/712457079125704704/cartvisit.png">
+    </wix-image>
+</div>
+</div>
+<br><br><br>
+<footer>
+  <p style="color: white; font-size: 18px">This Website Is Made By<a href="https://twitter.com/Y0ung_MA" target="_blank" style="color: red; font-size: 18px"> Y0ung.</a></p>
+  <a style="color: grey; font-family: optima;">LESART COMMUNICATION COPYRIGHT 2020 ALL RIGHT RESERVED</a>
+</footer>
+
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/mediaelement-and-player.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/circleaudioplayer.js"></script>
+
+  <script src="js/main.js"></script>
+
+  </body>
+</html>
